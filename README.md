@@ -1,4 +1,4 @@
-# Local Enterprise ML & Analytics Studio
+# Local Enterprise ML and Analytics Studio
 
 An end-to-end local data and analytics platform leveraging containerized services for distributed data processing, experiment tracking, and real-time visualization.
 
