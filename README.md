@@ -1,4 +1,4 @@
-# Local Enterprise ML and Analytics Studio (`enterprise_ml_studio`)
+# Local Enterprise ML and Analytics Studio
 
 Designed and deployed a local containerised data and analytics platform facilitating distributed Spark execution, end-to-end machine learning pipelines, and GenAI experimentation. Streamlined local development workflows and cloud-native simulation utilizing distributed tools and enterprise platforms including **Kubernetes, Minikube, Kubeflow, Ray, MLflow, and Apache Superset**, backed by Infrastructure-as-Code deployment manifests and persistent database orchestration.
 
