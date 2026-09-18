@@ -1,0 +1,10 @@
+FROM python:3.10-slim
+
+RUN apt-get update && apt-get install -y default-jre && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY . .
+
+RUN pip install --no-cache-dir pyspark pandas psycopg2-binary || true
+
+CMD ["python", "spark_to_postgres.py"]
