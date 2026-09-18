@@ -1,4 +1,4 @@
-Here is a comprehensive and professional `README.md` template tailored specifically for your **Local Enterprise ML & Analytics Studio** project. You can copy this directly into your repository's root directory.
+**Local Enterprise ML & Analytics Studio** project. You can copy this directly into your repository's root directory.
 
 ---
 
