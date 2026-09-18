@@ -53,7 +53,7 @@ enterprise_ml_studio/
 
 ### Prerequisites
 
-* [Docker](https://docs.docker.com/get-docker/?utm_source=gemini) and [Docker Compose](https://docs.docker.com/compose/install/?utm_source=gemini) installed on your local machine.
+* [Docker](https://docs.docker.com/get-docker/?utm_source=gemini) and [Docker Compose](https://docs.docker.com/compose/install/?utm_source=gemini) installed on the local machine.
 * [Minikube](https://minikube.sigs.k8s.io/?utm_source=gemini) and `kubectl` for Kubernetes orchestration.
 * Python 3.10+ (for running `ai_services` locally).
 
@@ -80,7 +80,7 @@ docker-compose up -d
 
 ### Option B: Local Kubernetes Deployment via Minikube
 
-1. **Start Minikube and point your terminal to its Docker daemon:**
+1. **Start Minikube and point the terminal to its Docker daemon:**
 
 ```bash
 minikube start
@@ -116,10 +116,10 @@ pip install -r requirements.txt
 
 ```
 
-2. **Set your environment variables (e.g., OpenAI API Key and database URL):**
+2. **Set the environment variables (e.g., OpenAI API Key and database URL):**
 
 ```bash
-export OPENAI_API_KEY="your_openai_api_key_here"
+export OPENAI_API_KEY="the_openai_api_key_here"
 export DATABASE_URL="postgresql://user:password@localhost:5432/enterprise_db"
 
 ```
