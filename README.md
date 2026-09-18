@@ -147,18 +147,3 @@ postgresql+psycopg2://<user>:<password>@postgres-service:5432/<db_name>
 
 ```
 
----
-
-### How to update your README file via terminal:
-
-If you want to quickly overwrite your local `README.md` with this updated text, run:
-
-```bash
-cat << 'EOF' > README.md
-# Local Enterprise ML and Analytics Studio
-... [paste or let the script populate]
-EOF
-
-```
-
-*(Or simply open `README.md` in your text editor, paste the markdown above, and save it!)*
