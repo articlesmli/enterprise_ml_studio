@@ -1,8 +1,3 @@
-**Local Enterprise ML & Analytics Studio** project. You can copy this directly into your repository's root directory.
-
----
-
-```markdown
 # Local Enterprise ML & Analytics Studio
 
 An end-to-end local data and analytics platform leveraging containerized services for distributed data processing, experiment tracking, and real-time visualization.
