@@ -23,11 +23,18 @@ The **Local Enterprise ML & Analytics Studio** is a fully containerized architec
 
 ## Repository Structure
 
+## 📁 Repository Structure
+
 ```text
+enterprise_ml_studio/
 ├── docker-compose.yml          # Defines the local multi-container stack
-├── spark_jobs/                 # PySpark processing scripts and pipelines
-├── mlflow/                     # MLflow configuration and backend store setup
-├── sql/                        # Database initialization and schema scripts
+├── Dockerfile.mlflow           # Custom build configuration for MLflow
+├── Dockerfile.superset         # Custom build configuration for Apache Superset
+├── superset_config.py          # Apache Superset configuration settings
+├── spark_to_postgres.py        # PySpark processing and data ingestion script
+├── postgresql-42.6.0.jar       # PostgreSQL JDBC driver for Spark
+├── mlflow/                     # MLflow tracking directory
+├── docker/                     # Additional Docker assets
 └── README.md                   # Project documentation
 
 ```
