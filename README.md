@@ -139,3 +139,42 @@ Navigate to `http://localhost:5000` in your web browser.
 If the container logs show `ModuleNotFoundError: No module named 'psycopg2'`, ensure the container startup command includes the inline `pip install psycopg2-binary` step as defined in the manifest above.
 * **Persistent Volume Permission Issues:**
 If pods fail to write artifacts, verify that the underlying storage class for `mlflow-artifact-pvc` allows read/write permissions for the container user.
+
+
+## File tree
+enterprise_ml_studio/
+├── .github/
+│   └── workflows/
+│       └── ci-cd.yml             # GitHub Actions continuous integration and deployment pipeline
+├── ai_services/
+│   ├── agent_tools.py            # Custom GenAI agent tools implementation
+│   ├── mcp_server.py             # Model Context Protocol (MCP) server configuration
+│   └── requirements.txt          # Python dependencies specifically for AI services[cite: 2]
+├── data/
+│   └── input_data.csv            # Raw dataset used for your machine learning workflows[cite: 2]
+├── docker/
+│   └── superset_config.py        # Configuration files for Apache Superset[cite: 2]
+├── mlflow/
+│   └── artifacts/                # Local mount directory/folder for storing MLflow model artifacts[cite: 2]
+├── terraform/
+│   ├── .terraform/               # Local Terraform plugins and cache[cite: 2]
+│   ├── .terraform.lock.hcl       # HashiCorp Configuration Language lock file for dependencies[cite: 2]
+│   ├── main.tf                   # Main Terraform infrastructure-as-code orchestration file[cite: 2]
+│   ├── terraform.tfstate         # Local state tracking file for Terraform[cite: 2]
+│   └── terraform.tfstate.backup  # Backup of the previous Terraform state[cite: 2]
+├── .dockerignore                 # Specifies files to ignore when building Docker images[cite: 2]
+├── .env                          # Environment variables configuration file[cite: 2]
+├── argocd-app.yaml               # ArgoCD application manifest for GitOps synchronization[cite: 2]
+├── docker-compose.yml            # Multi-container local orchestration setup[cite: 2]
+├── Dockerfile                    # Base or main container build file[cite: 2]
+├── Dockerfile.mlflow             # Custom Dockerfile tailored for the MLflow server
+├── Dockerfile.superset           # Custom Dockerfile tailored for Apache Superset
+├── k8s-full-stack.yaml           # Consolidated Kubernetes deployment, service, and PVC configuration
+├── mlflow-pvc.yaml               # Kubernetes Persistent Volume Claim configuration for MLflow[cite: 3]
+├── postgresql-42.6.0.jar         # JDBC driver for connecting Spark/Java workloads to PostgreSQL[cite: 3]
+├── README.md                     # Comprehensive project documentation and guides[cite: 3]
+├── spark-job.yaml                # Kubernetes manifest to run distributed Spark processing jobs[cite: 3]
+├── spark_to_postgres.py          # PySpark script for migrating or querying data with PostgreSQL[cite: 3]
+├── superset_config.py            # Global Superset application configurations[cite: 3]
+├── test_artifact_logging.py      # Test script to verify MLflow artifact logging functionality[cite: 3]
+└── test_mlflow.py                # Validation script to test connection and logging to MLflow[cite: 3]
