@@ -142,6 +142,7 @@ If pods fail to write artifacts, verify that the underlying storage class for `m
 
 
 ## File tree
+'''text
 enterprise_ml_studio/
 ├── .github/
 │   └── workflows/
@@ -178,3 +179,4 @@ enterprise_ml_studio/
 ├── superset_config.py            # Global Superset application configurations[cite: 3]
 ├── test_artifact_logging.py      # Test script to verify MLflow artifact logging functionality[cite: 3]
 └── test_mlflow.py                # Validation script to test connection and logging to MLflow[cite: 3]
+'''
