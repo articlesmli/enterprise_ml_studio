@@ -71,25 +71,44 @@ spec:
       containers:
       - name: ml-studio
         image: enterprise_ml_studio:latest
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Never
+        command: ["python", "ai_services/mcp_server.py"]
         env:
         - name: DB_HOST
           value: postgres-service
         - name: DB_PORT
           value: "5432"
+          
 ---
-apiVersion: batch/v1
-kind: Job
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: enterprise-ml-spark-job
-  namespace: default
+  name: mlflow-tracking-server
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlflow
   template:
+    metadata:
+      labels:
+        app: mlflow
     spec:
       containers:
-      - name: spark-processor
-        image: enterprise-ml-studio:latest
-        imagePullPolicy: IfNotPresent
-        # command: ["python", "spark_to_postgres.py"]
-      restartPolicy: Never
-  backoffLimit: 3
+      - name: mlflow
+        image: ghcr.io/mlflow/mlflow:v2.11.3
+        ports:
+        - containerPort: 5000
+        command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000", "--backend-store-uri", "sqlite:///mlflow.db", "--default-artifact-root", "./artifacts"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mlflow-service
+spec:
+  ports:
+  - port: 5000
+    targetPort: 5000
+  selector:
+    app: mlflow
+

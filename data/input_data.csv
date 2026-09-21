@@ -1,0 +1,4 @@
+metric_id,model_name,accuracy,loss,timestamp
+1,enterprise_random_forest,0.89,0.21,2026-09-21 12:00:00
+2,enterprise_xgboost,0.94,0.11,2026-09-21 12:05:00
+3,agentic_llm_router,0.87,0.34,2026-09-21 12:10:00

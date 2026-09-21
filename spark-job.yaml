@@ -1,0 +1,34 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: enterprise-ml-spark-job
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: spark-processor
+        image: enterprise_ml_studio:latest
+        imagePullPolicy: IfNotPresent
+        command: ["python", "spark_to_postgres.py"]
+        env:  # <--- ADD THIS ENTIRE ROUTING ENVIRONMENT BLOCK
+        - name: DB_HOST
+          value: postgres-service
+        - name: DB_PORT
+          value: "5432"
+        - name: POSTGRES_DB
+          value: ml_studio_db
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+        volumeMounts:
+        - name: internal-minikube-data
+          mountPath: /app/data
+      volumes:
+      - name: internal-minikube-data
+        hostPath:
+          path: /home/ivanovaml/enterprise_ml_studio/data
+          type: Directory
+      restartPolicy: Never
+  backoffLimit: 3
