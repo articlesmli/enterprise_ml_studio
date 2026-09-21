@@ -5,7 +5,7 @@ from langchain_openai import ChatOpenAI
 
 def run_finance_agent(natural_language_query: str):
     # Connects to your existing enterprise PostgreSQL instance
-    db_uri = os.getenv("DATABASE_URL", "postgresql://user:password@localhost:5432/enterprise_db")
+    db_uri = os.getenv("DATABASE_URL", "postgresql://ml_user:ml_password@ml-postgres:5432/ml_studio_db")
     db = SQLDatabase.from_uri(db_uri)
     
     llm = ChatOpenAI(model="gpt-4o", temperature=0)

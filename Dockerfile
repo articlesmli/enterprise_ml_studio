@@ -5,6 +5,6 @@ RUN apt-get update && apt-get install -y default-jre && rm -rf /var/lib/apt/list
 WORKDIR /app
 COPY . .
 
-RUN pip install --no-cache-dir pyspark pandas psycopg2-binary || true
+RUN pip install --no-cache-dir pyspark pandas psycopg2-binary mlflow || true
 
 CMD ["python", "spark_to_postgres.py"]

@@ -77,3 +77,19 @@ spec:
           value: postgres-service
         - name: DB_PORT
           value: "5432"
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: enterprise-ml-spark-job
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+      - name: spark-processor
+        image: enterprise-ml-studio:latest
+        imagePullPolicy: IfNotPresent
+        # command: ["python", "spark_to_postgres.py"]
+      restartPolicy: Never
+  backoffLimit: 3

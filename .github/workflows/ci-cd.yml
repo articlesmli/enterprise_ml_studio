@@ -63,7 +63,12 @@ jobs:
           method: kubeconfig
           kubeconfig: ${{ secrets.KUBE_CONFIG_DATA }}
 
-      - name: Apply Kubernetes Manifests
+      # - name: Apply Kubernetes Manifests
+      #   run: |
+      #     kubectl apply -f k8s-full-stack.yaml
+      #     kubectl rollout restart deployment/enterprise-ml-deployment
+
+      - name: Restart Kubernetes Deployments and Jobs
         run: |
-          kubectl apply -f k8s-full-stack.yaml
           kubectl rollout restart deployment/enterprise-ml-deployment
+          kubectl rollout restart job/enterprise-ml-spark-job
